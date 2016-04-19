@@ -9,16 +9,15 @@
 </head>
 
 <body>
-  <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
-  <script src="bootstrap-3.3.6-dist/js/bootstrap.js" type="text/javascript"></script>
   <script src="bundle.js" type="text/javascript"></script>
+
   <div ng-app="RedisKnowledgeDatabaseApp">
     <div class="container">
 
       <div class="row">
         <div class="col-sm-3 col-sm-offset-1 panel" ng-controller="LinksController as linkCtrl">
-          <div class="panel panel-default" ng-repeat="link in linkCtrl.tagsRedis">
-            <span class="label label-default">{{link}}</span>
+          <div class="panel panel-default" ng-repeat="tag in linkCtrl.tags">
+            <span class="label label-default">{{tag}}</span>
           </div>
         </div>
 
