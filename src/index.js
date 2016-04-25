@@ -6,7 +6,7 @@ angular.module('RedisKnowledgeDatabaseApp', []);
 
 angular
   .module('RedisKnowledgeDatabaseApp')
-  .controller('LinksController', ['$scope', function($scope){
+  .controller('LinksController', ['$scope', '$window', function($scope, $window){
     this.links = [];  //
     this.tags = [];
 
@@ -14,13 +14,13 @@ angular
     var PAGE = 0;
     this.displayedLinks = []; //
 
-    this.research = function(item){
+    /*this.research = function(item){
     	// return item.filter(item, function(link){return _.includes(this.research);});
 	   	this.displayedLinks = _.filter(this.links, function(link){
         	return _.includes(link.tags, item);
       	});
 	   	// this.updatePagination();
-    };
+    };*/
 
     this.setLinks = function(links){
     	this.links = links;
@@ -54,7 +54,7 @@ angular
       	console.log(this.displayedLinks);
       	//this.displayedLinks = this.displayedLinks.slice(PAGE*DISPLAYED_LINKS_COUNT, (PAGE+ 1)* DISPLAYED_LINKS_COUNT);
 //      	this.link = this.displayedLinks;
-      	this.updatePagination();
+//      	this.updatePagination();
     };
 
     this.clearTagFilter = function(){
@@ -74,14 +74,14 @@ angular
     };
 
     this.open = function(link){
-      console.log(link);
-      // window.open(_blank, link);
+      //console.log(link);
+      $window.open(link.href, '_blank');
     };
 
-	this.href = function(link){
-	 	//ouvrir sur un nouvel onglet
-	 	console.log(link.description);
-	};
+  	/*this.href = function(link){
+  	 	//ouvrir sur un nouvel onglet
+  	 	console.log(link.description);
+  	};*/
 
     this.previous = function(){
       PAGE--;
